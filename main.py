@@ -12,34 +12,50 @@ class Application(tk.Frame):
     def create_widgets(self):
 
         self.AddComp = tk.Button(root, text="Add new Eq", command=self.say_hi)
-        self.AddComp.place(height=40, width=80, x=10, y=10)
+        self.AddComp.place(height=40, width=80, x=15, y=15)
 
         self.AddComp = tk.Button(root, text="Show list", command=self.say_hi)
-        self.AddComp.place(height=40, width=80, x=10, y=60)
+        self.AddComp.place(height=40, width=80, x=15, y=65)
 
         self.AddComp = tk.Button(root, text="Find", command=self.say_hi)
-        self.AddComp.place(height=40, width=80, x=10, y=110)
+        self.AddComp.place(height=40, width=80, x=15, y=115)
 
         self.AddComp = tk.Button(root, text="Delete Eq", command=self.say_hi)
-        self.AddComp.place(height=40, width=80, x=10, y=170)
+        self.AddComp.place(height=40, width=80, x=15, y=165)
 
         self.AddComp = tk.Button(root, text="Categories", command=self.say_hi)
-        self.AddComp.place(height=40, width=80, x=350, y=10)
+        self.AddComp.place(height=40, width=80, x=350, y=15)
 
         self.AddComp = tk.Button(root, text="<", command=self.say_hi)
-        self.AddComp.place(height=40, width=80, x=400, y=70)
+        self.AddComp.place(height=40, width=80, x=700, y=430)
 
         self.AddComp = tk.Button(root, text=">", command=self.say_hi)
-        self.AddComp.place(height=40, width=80, x=400, y=120)
+        self.AddComp.place(height=40, width=80, x=880, y=430)
 
-        self.AddComp = tk.Button(root, text="Quit", command=self.say_hi)
-        self.AddComp.place(height=40, width=80, x=950, y=670)
+        self.AddComp = tk.Button(root, text="INFO", command=self.say_hi)
+        self.AddComp.place(height=40, width=80, x=790, y=430)
+
+        self.AddComp = tk.Button(root, text="Quit", command=self.master.destroy)
+        self.AddComp.place(height=40, width=80, x=950, y=665)
+
+        self.Zastepcze = tk.Button(root, text="Tutaj Obrazek", command=self.say_hi)
+        self.Zastepcze.place(height=400, width=400, x=630, y=15)
 
 
-        self.e = tk.Entry(root, width=50)
-        self.e.place(height=40, width=80, x=250, y=570)
+        self.Kategoria = tk.Entry(root, width=50)
+        self.Kategoria.place(height=40, width=80, x=150, y=570)
 
+        self.Typ = tk.Entry(root, width=50)
+        self.Typ.place(height=40, width=80, x=250, y=570)
 
+        self.Ilosc = tk.Entry(root, width=50)
+        self.Ilosc.place(height=40, width=80, x=350, y=570)
+
+        self.Informacje=tk.Label(root, text="Information", )
+        self.Informacje.place(height=40, width=80, x=400, y=10)
+
+        self.Informacje = tk.Label(root, text="Fast Find", )
+        self.Informacje.place(height=40, width=80, x=300, y=10)
 
 
 
