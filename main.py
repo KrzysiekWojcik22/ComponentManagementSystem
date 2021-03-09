@@ -23,9 +23,6 @@ class Application(tk.Frame):
         self.AddComp = tk.Button(root, text="Delete Eq", command=self.say_hi)
         self.AddComp.place(height=40, width=80, x=15, y=165)
 
-        self.AddComp = tk.Button(root, text="Categories", command=self.say_hi)
-        self.AddComp.place(height=40, width=80, x=350, y=15)
-
         self.AddComp = tk.Button(root, text="<", command=self.say_hi)
         self.AddComp.place(height=40, width=80, x=700, y=430)
 
@@ -43,19 +40,31 @@ class Application(tk.Frame):
 
 
         self.Kategoria = tk.Entry(root, width=50)
-        self.Kategoria.place(height=40, width=80, x=150, y=570)
+        self.Kategoria.place(height=25, width=100, x=240, y=50)
 
         self.Typ = tk.Entry(root, width=50)
-        self.Typ.place(height=40, width=80, x=250, y=570)
+        self.Typ.place(height=25, width=100, x=200, y=570)
 
         self.Ilosc = tk.Entry(root, width=50)
-        self.Ilosc.place(height=40, width=80, x=350, y=570)
+        self.Ilosc.place(height=25, width=100, x=200, y=570)
 
-        self.Informacje=tk.Label(root, text="Information", )
-        self.Informacje.place(height=40, width=80, x=400, y=10)
+        self.Informacje=tk.Label(root, text="Information:")
+        self.Informacje.place(height=40, width=80, x=350, y=10)
 
-        self.Informacje = tk.Label(root, text="Fast Find", )
-        self.Informacje.place(height=40, width=80, x=300, y=10)
+        self.Informacje = tk.Label(root, text="Fast Find:", )
+        self.Informacje.place(height=40, width=80, x=120, y=10)
+
+        self.Informacje = tk.Label(root, text="Category:", )
+        self.Informacje.place(height=40, width=80, x=120, y=40)
+
+        self.Informacje = tk.Label(root, text="Type:", )
+        self.Informacje.place(height=40, width=80, x=120, y=70)
+
+        self.Informacje = tk.Label(root, text="Quantity:", )
+        self.Informacje.place(height=40, width=80, x=120, y=100)
+
+        self.Informacje = tk.Label(root, text="Where:", )
+        self.Informacje.place(height=40, width=80, x=120, y=100)
 
 
 
