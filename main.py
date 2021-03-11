@@ -1,5 +1,5 @@
 import tkinter as tk
-
+from tkinter import ttk
 
 class Application(tk.Frame):
     def __init__(self, master=None):
@@ -8,20 +8,106 @@ class Application(tk.Frame):
         self.pack()
         self.create_widgets()
 
+    def Add(self):
+        top = tk.Toplevel()
+        top.title('Add new equipment')
+        top.geometry("300x500")
+
+        self.AddFinal = tk.Button(top, text="Add EQ",command=self.say_hi)
+        self.AddFinal.place(height=40,width=80, x =15, y=445 , )
+
+        self.AddFinal = tk.Button(top, text="Clear", command=self.say_hi)
+        self.AddFinal.place(height=40, width=80, x=110, y=445, )
+
+        self.AddFinal = tk.Button(top, text="Quit", command=self.say_hi)
+        self.AddFinal.place(height=40, width=80, x=205, y=445, )
+
+        self.NameL = tk.Label(top, text="Nazwa:", )
+        self.NameL.place(height=40, width=80, x=10, y=10)
+
+        self.Kategoria = tk.Label(top, text="kategoria:", )
+        self.Kategoria.place(height=40, width=80, x=10, y=60)
+
+        self.Grupa = tk.Label(top, text="Grupa:", )
+        self.Grupa.place(height=40, width=80, x=10, y=110)
+
+        self.Montaz = tk.Label(top, text="Montaz:", )
+        self.Montaz.place(height=40, width=80, x=10, y=160)
+
+        self.Obudowa = tk.Label(top, text="Obudowa:", )
+        self.Obudowa.place(height=40, width=80, x=10, y=210)
+
+        self.Rozmiar = tk.Label(top, text="Category:", )
+        self.Rozmiar.place(height=40, width=80, x=10, y=260)
+
+        self.Miejsce = tk.Label(top, text="Miejsce:", )
+        self.Miejsce.place(height=40, width=80, x=10, y=310)
+
+        self.ilosc = tk.Label(top, text="Ilosc:", )
+        self.ilosc.place(height=40, width=80, x=10, y=360)
+
+        Rozmiary = ["0402", "0605"]
+        kategorie = ["komponenty"]
+        SposobMontazu = ["THT", "SMD"]
+        ObudowyTHT = ["DIP", "SDIP" , "TO" ]
+        ObudowySMD = ["SOJ", "SOIC", "PLCC", "QFP", "BGA"]
+        grupa = ["1"]
+
+
+        self.Name = tk.Entry(top, width=50)
+        self.Name.place(height=20, width=180, x=100, y=20)
+
+        self.KategoriaZW = ttk.Combobox(top, values = kategorie)
+        self.KategoriaZW.place(height=20, width=180, x=100, y=70)
+
+        self.Grupaz = ttk.Combobox(top, values = grupa)
+        self.Grupaz.place(height=20, width=180, x=100, y=120)
+
+        self.Montazz = ttk.Combobox(top, values = SposobMontazu)
+        self.Montazz.place(height=20, width=180, x=100, y=170)
+
+        self.Obudowaz = ttk.Combobox(top, values = ObudowySMD)
+        self.Obudowaz.place(height=20, width=180, x=100, y=220)
+
+        self.rozmiarz = ttk.Combobox(top, values = Rozmiary)
+        self.rozmiarz.place(height=20, width=180, x=100, y=270)
+
+        self.rozmiarz = ttk.Combobox(top, values=ObudowyTHT)
+        self.rozmiarz.place(height=20, width=180, x=100, y=320)
+
+
+
+        self.iloscz = tk.Entry(top, width=50)
+        self.iloscz.place(height=20, width=180, x=100, y=370)
+
+
+
+
+    def show(self):
+        top = tk.Toplevel()
+        top.title('Show a equipment')
+
+    def find(self):
+        top = tk.Toplevel()
+        top.title('Find equipment')
+
+    def delete(self):
+        top = tk.Toplevel()
+        top.title('Delete equipment')
 
     def create_widgets(self):
 
-        self.AddComp = tk.Button(root, text="Add new Eq", command=self.say_hi)
+        self.AddComp = tk.Button(root, text="Add new Eq", command=self.Add)
         self.AddComp.place(height=40, width=80, x=15, y=15)
 
-        self.AddComp = tk.Button(root, text="Show list", command=self.say_hi)
-        self.AddComp.place(height=40, width=80, x=15, y=65)
+        self.ShowComp = tk.Button(root, text="Show list", command=self.show)
+        self.ShowComp.place(height=40, width=80, x=15, y=65)
 
-        self.AddComp = tk.Button(root, text="Find", command=self.say_hi)
-        self.AddComp.place(height=40, width=80, x=15, y=115)
+        self.FindComp = tk.Button(root, text="Find", command=self.find)
+        self.FindComp.place(height=40, width=80, x=15, y=115)
 
-        self.AddComp = tk.Button(root, text="Delete Eq", command=self.say_hi)
-        self.AddComp.place(height=40, width=80, x=15, y=165)
+        self.DeleteComp = tk.Button(root, text="Delete Eq", command=self.delete)
+        self.DeleteComp.place(height=40, width=80, x=15, y=165)
 
         self.AddComp = tk.Button(root, text="<", command=self.say_hi)
         self.AddComp.place(height=40, width=80, x=700, y=430)
@@ -67,7 +153,7 @@ class Application(tk.Frame):
         self.Where = tk.Entry(root, width=50)
         self.Where.place(height=25, width=100, x=210, y=200)
 
-        self.Informacje=tk.Label(root, text="Information:")
+        self.Informacje = tk.Label(root, text="Information:")
         self.Informacje.place(height=40, width=80, x=350, y=10)
 
         self.Informacje = tk.Label(root, text="Fast Find:", )
@@ -102,4 +188,5 @@ app = Application(master=root)
 
 app.master.title("Component Management System ")
 root.geometry("1045x720")
+
 app.mainloop()
