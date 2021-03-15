@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox
 
 class Application(tk.Frame):
     def __init__(self, master=None):
@@ -13,51 +14,54 @@ class Application(tk.Frame):
         top.title('Add new equipment')
         top.geometry("300x500")
 
-        self.AddFinal = tk.Button(top, text="Add EQ",command=self.say_hi)
-        self.AddFinal.place(height=40,width=80, x =15, y=445 , )
 
-        self.AddFinal = tk.Button(top, text="Clear", command=self.say_hi)
-        self.AddFinal.place(height=40, width=80, x=110, y=445, )
 
-        self.AddFinal = tk.Button(top, text="Quit", command=self.say_hi)
-        self.AddFinal.place(height=40, width=80, x=205, y=445, )
 
-        self.NameL = tk.Label(top, text="Nazwa:", )
-        self.NameL.place(height=40, width=80, x=10, y=10)
+        self.AddComponent = tk.Button(top, text="Add EQ",command=self.fAddComponent)
+        self.AddComponent.place(height=40,width=80, x =15, y=445 , )
 
-        self.Kategoria = tk.Label(top, text="kategoria:", )
-        self.Kategoria.place(height=40, width=80, x=10, y=60)
+        self.ClearComponent = tk.Button(top, text="Clear", command=self.fClearComponent)
+        self.ClearComponent.place(height=40, width=80, x=110, y=445, )
 
-        self.Grupa = tk.Label(top, text="Grupa:", )
-        self.Grupa.place(height=40, width=80, x=10, y=110)
+        self.QuitComponent = tk.Button(top, text="Quit", command=self.fQuitComponent)
+        self.QuitComponent.place(height=40, width=80, x=205, y=445, )
 
-        self.Montaz = tk.Label(top, text="Montaz:", )
-        self.Montaz.place(height=40, width=80, x=10, y=160)
+        self.lName = tk.Label(top, text="Name:", )
+        self.lName.place(height=40, width=80, x=10, y=10)
 
-        self.Obudowa = tk.Label(top, text="Obudowa:", )
-        self.Obudowa.place(height=40, width=80, x=10, y=210)
+        self.lCategory = tk.Label(top, text="Category:", )
+        self.lCategory.place(height=40, width=80, x=10, y=60)
 
-        self.Rozmiar = tk.Label(top, text="Category:", )
-        self.Rozmiar.place(height=40, width=80, x=10, y=260)
+        self.lGroup = tk.Label(top, text="Group:", )
+        self.lGroup.place(height=40, width=80, x=10, y=110)
 
-        self.Miejsce = tk.Label(top, text="Miejsce:", )
-        self.Miejsce.place(height=40, width=80, x=10, y=310)
+        self.lAssembly = tk.Label(top, text="Assembly:", )
+        self.lAssembly.place(height=40, width=80, x=10, y=160)
 
-        self.ilosc = tk.Label(top, text="Ilosc:", )
-        self.ilosc.place(height=40, width=80, x=10, y=360)
+        self.lCase = tk.Label(top, text="Case:", )
+        self.lCase.place(height=40, width=80, x=10, y=210)
 
-        Rozmiary = ["0402", "0605"]
-        kategorie = ["komponenty"]
+        self.lSize = tk.Label(top, text="Size:", )
+        self.lSize.place(height=40, width=80, x=10, y=260)
+
+        self.lStorage = tk.Label(top, text="Storage:", )
+        self.lStorage.place(height=40, width=80, x=10, y=310)
+
+        self.lQuantity = tk.Label(top, text="Quantity:", )
+        self.lQuantity.place(height=40, width=80, x=10, y=360)
+
+        SizeComponents = ["0201","0402", "0603","0805","1008","1206","1210"]
+        Categories = ["Semiconductor",]
         SposobMontazu = ["THT", "SMD"]
-        ObudowyTHT = ["DIP", "SDIP" , "TO" ]
-        ObudowySMD = ["SOJ", "SOIC", "PLCC", "QFP", "BGA"]
+        #CasesTHT = ["DIP", "SDIP" , "TO" ]
+        CasesSMD = ["SOJ", "SOIC", "PLCC", "QFP", "BGA"]
         grupa = ["1"]
 
 
         self.Name = tk.Entry(top, width=50)
         self.Name.place(height=20, width=180, x=100, y=20)
 
-        self.KategoriaZW = ttk.Combobox(top, values = kategorie)
+        self.KategoriaZW = ttk.Combobox(top, values = Categories)
         self.KategoriaZW.place(height=20, width=180, x=100, y=70)
 
         self.Grupaz = ttk.Combobox(top, values = grupa)
@@ -66,13 +70,13 @@ class Application(tk.Frame):
         self.Montazz = ttk.Combobox(top, values = SposobMontazu)
         self.Montazz.place(height=20, width=180, x=100, y=170)
 
-        self.Obudowaz = ttk.Combobox(top, values = ObudowySMD)
+        self.Obudowaz = ttk.Combobox(top, values = CasesSMD)
         self.Obudowaz.place(height=20, width=180, x=100, y=220)
 
-        self.rozmiarz = ttk.Combobox(top, values = Rozmiary)
+        self.rozmiarz = ttk.Combobox(top, values = SizeComponents)
         self.rozmiarz.place(height=20, width=180, x=100, y=270)
 
-        self.rozmiarz = ttk.Combobox(top, values=ObudowyTHT)
+        self.rozmiarz = ttk.Combobox(top, values=CasesSMD)
         self.rozmiarz.place(height=20, width=180, x=100, y=320)
 
 
@@ -94,6 +98,8 @@ class Application(tk.Frame):
     def delete(self):
         top = tk.Toplevel()
         top.title('Delete equipment')
+
+
 
     def create_widgets(self):
 
@@ -181,6 +187,16 @@ class Application(tk.Frame):
     def show_list(self):
         print("show list")
 
+    def fAddComponent(self):
+        print("AddComponent")
+        messagebox.showinfo("Information", "Components was added")
+        messagebox.showerror("Error", "Please complete all tables")
+
+    def fClearComponent(self):
+        print("ClearComponent")
+
+    def fQuitComponent(self):
+        print("Quit")
 
 
 root = tk.Tk()
