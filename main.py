@@ -1,6 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
+import mysql.connector
+
+
+
 
 class Application(tk.Frame):
     def __init__(self, master=None):
@@ -13,6 +17,9 @@ class Application(tk.Frame):
         top = tk.Toplevel()
         top.title('Add new equipment')
         top.geometry("300x500")
+
+
+
 
 
 
@@ -189,11 +196,79 @@ class Application(tk.Frame):
 
     def fAddComponent(self):
         print("AddComponent")
-        messagebox.showinfo("Information", "Components was added")
-        messagebox.showerror("Error", "Please complete all tables")
+        #messagebox.showinfo("Information", "Components was added")
+
+
+
+        name = self.Name.get()
+        if (name == ""):
+            messagebox.showerror("Error", "All Fields are required")
+        else:
+            mydb = mysql.connector.connect(
+                host='localhost',
+                user='root',
+                password='KrzysiekmySql12',
+                database="testsql"
+            )
+            cursor = mydb.cursor()
+            cursor.execute("")
+            messagebox.showinfo("Insert Status", "Component was added")
+            mydb.close()
+
+            self.Name.delete(0,'end')
+
 
     def fClearComponent(self):
         print("ClearComponent")
+'''
+    def.fDeleteComponent(self):
+        Id = Id.get()
+        if (Id==""):
+            messagebox.showerror("Delete Status", "This Id is no exist: ")
+        else:
+        mydb = mysql.connector.connect(
+            host='localhost',
+            user='root',
+            password='KrzysiekmySql12',
+            database="testsql"
+        )
+
+
+cursor = mydb.cursor()
+cursor.execute("delete from ")
+messagebox.showinfo("Insert Status", "Component was added")
+mydb.close()
+
+self.Name.delete(0, 'end')
+'''
+
+
+'''
+    def fUpdateComponent(self):
+
+
+    
+        def.fDeleteComponent(self):
+            Id = Id.get()
+            if (Id==""):
+                messagebox.showerror("Delete Status", "This Id is no exist: ")
+            else:
+            mydb = mysql.connector.connect(
+                host='localhost',
+                user='root',
+                password='KrzysiekmySql12',
+                database="testsql"
+            )
+
+
+    cursor = mydb.cursor()
+    cursor.execute("delete from ")
+    messagebox.showinfo("Insert Status", "Component was added")
+    mydb.close()
+
+    self.Name.delete(0, 'end')
+    '''
+
 
     def fQuitComponent(self):
         print("Quit")
